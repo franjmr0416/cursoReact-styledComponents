@@ -22,6 +22,15 @@ const BlockButton = styled(Button)`
   width: 100%;
   font-size: 24px;
 `;
+//componente normal
+const Link = ({ className, ...props }) => {
+  //!importante pasar la prop de className
+  return <a className={className} {...props}></a>;
+};
+//agregando estilos a componente normal
+const StyledLink = styled(Link)`
+  color: blue;
+`;
 
 const App = () => {
   return (
@@ -29,7 +38,11 @@ const App = () => {
       <P>Hola</P>
       <Button>Enviar</Button>
       <Button primary>Enviar</Button>
-      <BlockButton primary>Enviar</BlockButton>
+      <BlockButton primary as="a" href="#">
+        Enviar
+      </BlockButton>
+      <Link>Link</Link>
+      <StyledLink>Link con estilo</StyledLink>
     </Content>
   );
 };
